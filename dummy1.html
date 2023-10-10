@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <img src="" alt="">
+
+
+
+
+<script>
+
+//Get elements of all items into new page i.e dummy.html....
+
+    var dataGetting=localStorage.getItem("addindex");
+    console.log(dataGetting);
+    let dataGetting1=JSON.parse(dataGetting);
+
+    let lists=document.querySelectorAll("li");
+    lists[0].innerHTML=dataGetting1["id"];
+    lists[1].innerHTML=dataGetting1["category"];
+    lists[2].innerHTML=dataGetting1["description"];
+    lists[3].innerHTML=dataGetting1["price"];
+    let imgg=document.querySelector("img");
+    imgg.setAttribute("src",dataGetting1["image"]);
+    imgg.style.width="200px";
+    imgg.style.height="200px";
+
+
+
+
+</script>
+    
+</body>
+</html>

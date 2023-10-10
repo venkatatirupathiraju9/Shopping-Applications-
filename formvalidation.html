@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+
+    #content {
+      background-image: url(https://entrackr.com/storage/2019/02/Myntra--1200x600.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      height: 100vh;
+
+    }
+
+    #form1 {
+      background-color: rgb(213, 206, 206);
+      width: 400px;
+      margin: 20vh auto 0 auto;
+      padding: 30px;
+      box-shadow: 5px 5px 5px white;
+      border-left: 5px solid whitesmoke;
+      border-top: 30px solid white;
+      margin-left: 750px;
+    }
+    h3 {
+      text-align: center;
+      font-size: 30px;
+    }
+    input {
+      text-align: center;
+    }
+
+    .div1 {
+      font-size: 16px;
+      padding: 10px;
+      display: block;
+      border-radius: 4px;
+      /* border: 2px solid white; */
+      width: 100%;
+    }
+    .inp1 {
+      margin-left: 55px;
+      height: 20px;
+      border-radius: 5px;
+    }
+    .inp2 {
+      margin-left: 60px;
+      height: 20px;
+      border-radius: 5px;
+    }
+    .inp3 {
+      border-radius: 5px;
+    }
+    .inp4 {
+      margin-left: 82px;
+      height: 20px;
+      border-radius: 5px;
+    }
+    .inp5 {
+      margin-left: 80px;
+      height: 20px;
+      border-radius: 5px;
+    }
+    .inp6 {
+      margin-left: 30px;
+      height: 20px;
+      border-radius: 5px;
+    }
+    button {
+      margin-left: 80px;
+      margin-top: 20px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+    label {
+      font-size: 16px;
+    }
+    h2 {
+      text-align: center;
+      font-size: 30px;
+      font-style: italic;
+    }
+  </style>
+
+  <body id="content">
+    <h2>Welcome to Mintra Fashion World!!</h2>
+    <form action="" id="form1">
+      <h3>Register Here!</h3>
+
+      <div class="div1">
+        <label for="un">UserName:</label>
+        <input
+          class="inp1"
+          type="text"
+          placeholder="UserName"
+          required
+        /><br /><br />
+        <span style="color: rgb(221, 22, 22); display: none"
+          >Enater minimum 10 charactors</span
+        >
+
+        <label for="passWord">PassWord:</label>
+        <input
+          class="inp2"
+          type="password" 
+          placeholder="passWord"
+          required
+        /><br /><br />
+        <span id="spann1" style="color: rgb(223, 34, 34); display: none"
+          >Password atlest 10 charactors,and all charactors should be small
+          letters</span
+        >
+
+        <label for="Conform Password">Conform Password:</label>
+        <input
+          class="inp3"
+          type="password"
+          placeholder="Conform passWord"
+          required
+        /><br /><br />
+        <span id="span3" style="display: none; color: rgb(223, 27, 27)"
+          >PassWord and Conform Password should be same</span
+        >
+
+        <label for="D.O.B">D.O.B:</label>
+        <input
+          class="inp4"
+          type="date"
+          placeholder="Enter"
+          required
+        /><br /><br />
+        <span id="span5" style="display: none; color: rgb(218, 27, 27)"
+          >Enter correct date of birth</span
+        >
+
+        <label for="E-mail">E-mail:</label>
+        <input
+          class="inp5"
+          type="email"
+          placeholder="E-mail"
+          required
+        /><br /><br />
+
+        <label for="PhoneNumber">PhoneNumber:</label>
+        <input
+          class="inp6"
+          type="phonenumber"
+          placeholder="Phone Number"
+          required
+        /><br /><br />
+        <span id="spann7" style="display: none; color: brown"
+          >Enter 10 Digits Number and start with 6,7,8,9</span
+        >
+
+        <button type="submit" id="sub1">Submit</button>
+        <button type="reset">reset</button>
+      </div>
+    </form>
+
+    <script>
+
+      
+      // console.log(document.forms[0]);
+
+      // let a=[];
+
+      document.forms[0].addEventListener("submit", function (event) {
+        // console.log(event);
+        event.preventDefault();
+        
+        console.log(event.target[0].value);
+        console.log(event.target[1].value);
+        console.log(event.target[2].value);
+        console.log(event.target[3].value);
+        console.log(event.target[4].value);
+        console.log(event.target[5].value);
+
+        let userName = event.target[0].value;
+        let passWord = event.target[1].value;
+        let password2 = event.target[2].value;
+        let Email = event.target[4].value;
+        let phoneNumber = event.target[5].value;
+
+        let valid=true;
+        
+      
+          // let userName = event.target[0].value;
+          // let Email=event.target[4].value;
+          if (userName.length >= 10 && userName[0] == "v") {
+            let spann = document.querySelector("span");
+            spann.style.display = "none";
+            event.target[0].style.border = "2px solid green";
+            valid=true;
+          } else {
+            // alert("fill the correct text");
+            let spann = document.querySelector("span");
+            spann.style.display = "block";
+            event.target[0].style.border = "2px solid red";
+          }
+
+          // password1....
+          // let passWord = event.target[1].value;
+          if (typeof passWord !== "number" || !isNaN(passWord)) {
+            let spann2 = document.getElementById("spann1");
+            spann2.style.display = "none";
+            event.target[1].style.border = "2px solid green";
+            valid=true;
+          } else {
+            // alert("Enter Correct Password")
+            let spann2 = document.getElementById("spann1");
+            spann2.style.display = "block";
+            event.target[1].style.border = "2px solid red";
+          }
+
+          //password2....
+          // let password2 = event.target[2].value;
+          if (password2 == passWord) {
+            let spann4 = document.getElementById("span3");
+            spann4.style.display = "none";
+            event.target[2].style.border = "2px solid green";
+            valid=true;
+          } else {
+            let spann4 = document.getElementById("span3");
+            spann4.style.display = "block";
+            event.target[2].style.border = "2px solid red";
+          }
+
+          // let phoneNumber = event.target[5].value;
+
+              if (
+                (phoneNumber[0] == 9 ||
+                  phoneNumber[0] == 8 ||
+                  phoneNumber[0] == 7 ||
+                  phoneNumber[0] == 6) &&
+                phoneNumber.length == 10) {
+                // Validation is successful
+                 let pnumber = document.getElementById("spann7")
+                 pnumber.style.display="none";
+                event.target[5].style.border = "2px solid green";
+                valid = true;
+
+                // Redirect to the login page
+                // window.open("./loginpage.html" ,"_self"); // Replace with the actual login page URL
+              } else {
+                // Validation failed
+                let pnumber = document.getElementById("spann7")
+                pnumber.style.display="block";
+                event.target[5].style.border = "2px solid red";
+              }
+
+
+          if ((userName.length >= 10 && userName[0] == "v") && (typeof passWord !== "number" || !isNaN(passWord)) && (password2 == passWord) &&
+              (phoneNumber[0] == "9" ||
+              phoneNumber[0] == "8" ||
+              phoneNumber[0] == "7" ||
+              phoneNumber[0] == "6" &&
+              phoneNumber.length == 10)) {
+
+            alert("Regisrtation Successfull!!");
+          window.open("./loginpage.html" ,"_self");
+          } 
+          else {
+            alert ("Enter valid information here !")
+            
+          }
+        
+          let arr=JSON.parse(localStorage.getItem("store"))||[];
+
+          if (valid) {
+            let obj = {
+              username: userName,
+              password: passWord,
+              confirmpassword: password2,
+              phoneNumber: phoneNumber,
+            };
+            arr.push(obj);
+            localStorage.setItem("store", JSON.stringify(arr));
+        }else{
+            alert("Enter correct details")
+        }
+
+
+      });
+
+      
+    </script>
+  </body>
+</html>

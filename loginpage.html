@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+
+      .inputtype {
+        margin-left: 850px;
+        margin-top: -280px;
+      }
+
+      .inp1 {
+        height: 25px;
+        margin: 4px;
+        border-radius: 5px;
+        background-color: rgb(247, 248, 250);
+        font-style: italic;
+        /* margin-left: 650px; */
+
+      }
+      img {
+        margin-left: 750px;
+        display: block;
+        justify-content: center;
+        margin-top: 100px;
+      }
+     h3 {
+        color: rgb(234, 34, 34);
+        font-size: 25px;
+     }
+
+     #submit {
+        font-style: italic;
+        background-color: rgb(247, 249, 247);
+        height: 30px;
+     }
+     body {
+        background-image: url(https://wallpapers.com/images/featured/business-card-background-u1dyxn9r3mwusl2z.jpg);
+     }
+
+
+
+    </style>
+  </head>
+  <body>
+    <img src="https://designmodo.com/wp-content/uploads/2013/12/1.gif" alt="">
+    <div class="inputtype">
+      <h3>Login Here!!</h3>
+      <form action="">
+        <input
+          class="inp1"
+          type="text"
+          placeholder="Enter username"
+        /><br /><br />
+        <span id="spann11" style="display: none; color: brown"
+          >Should contain atleast 10 charactors</span
+        >
+        <input
+          class="inp1"
+          type="text"
+          placeholder="Enter password"
+        /><br /><br />
+        <span id="span3" style="display: none; color: brown"
+          >pass word should contain atleast 10 charactors and alphabets</span
+        >
+        <input id="submit" type="submit" value="SignUp" />
+      </form>
+    </div>
+    <!-- <img src="https://designmodo.com/wp-content/uploads/2013/12/1.gif" alt=""> -->
+
+    <script>
+      //   document.forms[0].addEventListener("submit", function (e) {
+      //     e.preventDefault();
+      //     let UserName = e.target[0].value;
+      //     let PassWord = e.target[1].value;
+
+      //     let GetData = JSON.parse(localStorage.getItem("store")) || [];
+
+      //     for (i=0; i<GetData.length; i++) {
+      //       if (
+      //         UserName === GetData[i].username &&
+      //         PassWord === GetData[i].password
+      //       ) {
+      //         alert ("Login Successful")
+      //         window.location.assign ("Project2 Fashion.html");
+      //       } else {
+      //         alert ("Error");
+      //       }
+
+      //     }
+      //   });
+
+      document.forms[0].addEventListener("submit", function (e) {
+        e.preventDefault();
+        let UserName = e.target[0].value;
+        let PassWord = e.target[1].value;
+
+        let GetData = JSON.parse(localStorage.getItem("store")) || [];
+
+        let found = false; // Variable to track if a match is found
+
+        for (let i = 0; i < GetData.length; i++) {
+          if (
+            UserName === GetData[i].username &&
+            PassWord === GetData[i].password
+          ) {
+            found = true; // Set found to true if a match is found
+            alert("Login Successful");
+            window.location.assign("Project2 Fashion.html");
+            // break; // Exit the loop once a match is found
+          }
+        }
+        if (!found) {
+          alert("Error"); // Show an error alert if no match is found after the loop
+          e.target[1].style.border = "2px solid red";
+        }
+      });
+    </script>
+  </body>
+</html>
